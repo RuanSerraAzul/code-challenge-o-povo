@@ -22,9 +22,9 @@ Optei por usar JSON para receber e enviar dados. Para a autenticação foi usado
 
 ### Requisitos
 
--PHP 7.3
-    -extensão php-xml
-    -extensão php-mysqli
+-PHP 7.3 <br>
+    -extensão php-xml<br>
+    -extensão php-mysqli<br>
 -MySQL
 
 -Composer
