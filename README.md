@@ -22,44 +22,35 @@ Optei por usar JSON para receber e enviar dados. Para a autenticação foi usado
 
 ### Requisitos
 
--PHP 7.3 <br>
-    -extensão php-xml<br>
-    -extensão php-mysqli<br>
--MySQL
-
--Composer
-
--(Uma build pré-configurada como o XAMPP pode facilitar muito o trabalho, podendo ser instalado apenas o XAMPP e o Composer)
+-Docker
 
 ### Como instalar
 
 Baixe este projeto e o descompacte.<br>
 
-Navegue até o diretório do projeto e use<br>
-**composer install**
-
 Copiamos o .env.example como nosso .env principal<br>
 **cp .env.example .env**
 
-Não podemos esquecer de colocar a senha do nosso servidor no nosso arquivo .env<br>
+Navegue até o diretório do projeto e use<br>
+**docker-compose build app**
 
-Agora dentro do nosso MySQL rodaremos o comando para criar o BD (é importante estar logado como root)<br>
-**mysql:>CREATE DATABASE jornal-opovo;**
+Use este comando para executar os containers:<br>
+**docker-compose up -d**
+
+Agora, vamos executar o composer install para instalar as dependências do aplicativo:<br>
+**docker-compose exec app composer install**
 
 Rodaremos as nossas migrations para criar as tabelas do nosso banco de dados<br>
-**php artisan migrate**
+**docker-compose exec app php artisan migrate**
 
 (Opcional) Foi inserido um pequeno seeder com apenas um úsuario para testar a rota de login<br>
-**php artisan db:seed**
+**docker-compose exec app php artisan db:seed**
 
 Neste passo iremos criar a chave do nosso JWT usando:<br>
-**php artisan jwt:secret**
-
-Agora podemos rodar o nosso servidor com nossa REST API usando: <br>
-**php artisan serve**
+**docker-compose exec app php artisan jwt:secret**
 
 (Opcional) Caso tenha optado por usar o db:seeder para fazer o teste unitario usaremos:<br>
-**php artisan test**
+**docker-compose exec app php artisan test**
 
 # Como Usar
 
