@@ -46,6 +46,9 @@ Rodaremos as nossas migrations para criar as tabelas do nosso banco de dados<br>
 (Opcional) Foi inserido um pequeno seeder com apenas um úsuario para testar a rota de login<br>
 **docker-compose exec app php artisan db:seed**
 
+Primeiro precisamos criar a chave da nossa aplicação usando:<br>
+**docker-compose exec app php artisan key:generate**
+
 Neste passo iremos criar a chave do nosso JWT usando:<br>
 **docker-compose exec app php artisan jwt:secret**
 
